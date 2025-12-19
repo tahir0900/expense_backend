@@ -26,7 +26,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-only")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    'expense-backend-1z0c.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 
