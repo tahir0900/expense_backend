@@ -1,0 +1,67 @@
+# === Django / Python ===
+_pycache_/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+
+# Django secret / env files
+.env
+.env.*
+!.env.example
+
+# Django local database & artifacts
+db.sqlite3
+db.sqlite3-journal
+
+# Django static/media (often generated)
+staticfiles/
+static/
+media/
+
+# Logs
+*.log
+
+# Unit test / coverage
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.cache/
+
+# Migrations (OPTIONAL)
+# Uncomment if you DON'T want to version migrations (usually you SHOULD keep them)
+# **/migrations/
+# !**/migrations/_init_.py
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if you have frontend)
+node_modules/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# mypy / type checkers
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Poetry / Pip
