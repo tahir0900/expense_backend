@@ -1,0 +1,42 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# Environment/secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+*.sqlite3
+
+# Logs
+*.log
+
+# Django/media/static build artifacts (optional depending on your setup)
+media/
+staticfiles/
+
+# Node (if present)
+node_modules/
+
+# Tests / docs (optional)
+tests/
+docs/
+
+# CI configs (optional)
+.github/
