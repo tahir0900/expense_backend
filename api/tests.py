@@ -8,6 +8,9 @@ from datetime import date, timedelta
 from .models import Category, Transaction, UserProfile
 
 
+# Define a constant for test passwords
+TEST_PASSWORD = 'secure_test_password'
+
 # ========== Model Tests ==========
 
 class CategoryModelTest(TestCase):
@@ -17,7 +20,7 @@ class CategoryModelTest(TestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
     
     def test_category_creation(self):
@@ -58,7 +61,7 @@ class TransactionModelTest(TestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
         self.category = Category.objects.create(
             user=self.user,
@@ -102,7 +105,7 @@ class UserProfileModelTest(TestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
     
     def test_profile_creation(self):
@@ -133,7 +136,7 @@ class AuthAPITest(APITestCase):
         data = {
             'name': 'John Doe',
             'email': 'john@example.com',
-            'password': 'securepass123'
+            'password': TEST_PASSWORD
         }
         response = self.client.post(self.signup_url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -154,7 +157,7 @@ class AuthAPITest(APITestCase):
         data = {
             'name': 'John Doe',
             'email': 'john@example.com',
-            'password': 'securepass123'
+            'password': TEST_PASSWORD
         }
         response = self.client.post(self.signup_url, data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -172,12 +175,12 @@ class AuthAPITest(APITestCase):
         user = User.objects.create_user(
             username='john@example.com',
             email='john@example.com',
-            password='securepass123'
+            password=TEST_PASSWORD
         )
         
         data = {
             'email': 'john@example.com',
-            'password': 'securepass123'
+            'password': TEST_PASSWORD
         }
         response = self.client.post(self.login_url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -209,7 +212,7 @@ class ProfileAPITest(APITestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123',
+            password=TEST_PASSWORD,
             first_name='Test User'
         )
         self.token = Token.objects.create(user=self.user)
@@ -256,7 +259,7 @@ class CategoryAPITest(APITestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
         self.token = Token.objects.create(user=self.user)
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.token.key}')
@@ -344,7 +347,7 @@ class TransactionAPITest(APITestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
         self.token = Token.objects.create(user=self.user)
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.token.key}')
@@ -479,7 +482,7 @@ class DashboardAPITest(APITestCase):
         self.user = User.objects.create_user(
             username='testuser@example.com',
             email='testuser@example.com',
-            password='testpass123'
+            password=TEST_PASSWORD
         )
         self.token = Token.objects.create(user=self.user)
         self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.token.key}')
