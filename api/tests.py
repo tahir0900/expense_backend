@@ -152,7 +152,7 @@ class AuthAPITest(APITestCase):
         User.objects.create_user(
             username='john@example.com',
             email='john@example.com',
-            password='pass123'
+            password=TEST_PASSWORD
         )
         data = {
             'name': 'John Doe',
@@ -328,7 +328,7 @@ class CategoryAPITest(APITestCase):
         other_user = User.objects.create_user(
             username='other@example.com',
             email='other@example.com',
-            password='pass123'
+            password=TEST_PASSWORD
         )
         Category.objects.create(user=other_user, name='Other Food', type='expense')
         Category.objects.create(user=self.user, name='My Food', type='expense')
@@ -444,7 +444,7 @@ class TransactionAPITest(APITestCase):
         other_user = User.objects.create_user(
             username='other@example.com',
             email='other@example.com',
-            password='pass123'
+            password=TEST_PASSWORD
         )
         other_category = Category.objects.create(
             user=other_user,
