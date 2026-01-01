@@ -556,6 +556,3 @@ class AuthenticationTest(APITestCase):
         """Test that profile endpoint requires authentication"""
         response = self.client.get('/api/me/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-
-        # end 
-        
