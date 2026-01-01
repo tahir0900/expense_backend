@@ -191,7 +191,7 @@ class AuthAPITest(APITestCase):
         """Test login with invalid credentials"""
         data = {
             'email': 'wrong@example.com',
-            'password': 'wrongpass'
+            'password': TEST_PASSWORD
         }
         response = self.client.post(self.login_url, data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
